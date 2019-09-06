@@ -2,7 +2,7 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4
 
 fetch(
     'https://trefle.io/api/kingdoms?name=blackwood&token=' + token, {
-        //mode: 'no-cors',
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token,
