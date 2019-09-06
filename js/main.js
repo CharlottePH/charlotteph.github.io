@@ -1,8 +1,10 @@
 fetch(
-    'http://tnrs.iplantc.org/tnrsm-svc/matchNames?retrieve=best&names=zea%20mays,acacia,solanum,saltea', {
-        // mode: 'no-cors',
+    'https://trefle.io/api/kingdoms?name=blackwood', {
+        //mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer QnNpWEtRSFNkN2Zqa1BZUlpZQVN5dz09',
+            'Origin': 'https://charlotteph.github.io/'
         }
     })
   .then(function(response) {
