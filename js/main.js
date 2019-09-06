@@ -1,9 +1,11 @@
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJjaGFybG90dGVwaC5naXRodWIuaW8iLCJhdWQiOiJKb2tlbiIsImV4cCI6MTU2Nzc4NjkzNSwiaWF0IjoxNTY3Nzc5NzM1LCJpc3MiOiJKb2tlbiIsImp0aSI6IjJuMHR1bjZmcnFsdWhqdmh1b2M3YTg4MSIsIm5iZiI6MTU2Nzc3OTczNX0.bU7dk6HsRnADMwHJiq98s25bPAG5Sbg-v1emYGyNsmU";
+
 fetch(
-    'https://trefle.io/api/kingdoms?name=blackwood', {
+    'https://trefle.io/api/kingdoms?name=blackwood&token=' + token, {
         //mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJodHRwczovL2NoYXJsb3R0ZXBoLmdpdGh1Yi5pbyIsImF1ZCI6Ikpva2VuIiwiZXhwIjoxNTY3Nzg1NzQ0LCJpYXQiOjE1Njc3Nzg1NDQsImlzcyI6Ikpva2VuIiwianRpIjoiMm4wdHNoczNycW1pZ21qczVnYzdhNjMxIiwibmJmIjoxNTY3Nzc4NTQ0fQ.2tB5ORA_xrQleiS85gEgCfYz-ZDKWXfnvd2ZVvGP0IQ',
+            'Authorization': 'Bearer ' + token,
             'Origin': 'https://charlotteph.github.io'
         }
     })
