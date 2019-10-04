@@ -1,13 +1,18 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJjaGFybG90dGVwaC5naXRodWIuaW8iLCJhdWQiOiJKb2tlbiIsImV4cCI6MTU3MDE5Mjc5MCwiaWF0IjoxNTcwMTg1NTkwLCJpc3MiOiJKb2tlbiIsImp0aSI6IjJuNTZtdWNsZ2ZyZnFzZm1zY2g5Zm1zMSIsIm5iZiI6MTU3MDE4NTU5MH0.h57ObF-9xAFM4C7uLVBZSJt6HNdNodG-rAkxIaf0V2s";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJodHRwczovL2NoYXJsb3R0ZXBoLmdpdGh1Yi5pbyIsImF1ZCI6Ikpva2VuIiwiZXhwIjoxNTcwMTk0NzU2LCJpYXQiOjE1NzAxODc1NTYsImlzcyI6Ikpva2VuIiwianRpIjoiMm41NnFncXVob2xnaWRwaG5zaDlmcGYxIiwibmJmIjoxNTcwMTg3NTU2fQ.Y_fFz0dAkjM6RCw5DF-66rAIZRqjsTsCBMBgfeE4wHA";
 
-fetch(
-    'https://trefle.io/api/kingdoms?name=blackwood&token=' + token, {
-        //mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-        }
-    })
+const myHeaders = new Headers({
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer ' + token
+});
+
+const myInit = {
+  method: 'GET',
+  headers: myHeaders
+};
+
+const myRequest = new Request('https://trefle.io/api/kingdoms?token=' + token, myInit);
+
+fetch(myRequest)
   .then(function(response) {
       console.log(response);
     return response.json();
