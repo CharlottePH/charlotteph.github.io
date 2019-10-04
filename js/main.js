@@ -10,7 +10,7 @@ const myInit = {
   headers: myHeaders
 };
 
-const myRequest = new Request('https://trefle.io/api/kingdoms?token=' + token, myInit);
+const myRequest = new Request('https://trefle.io/api/kingdoms', myInit);
 
 fetch(myRequest)
   .then(function(response) {
