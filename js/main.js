@@ -46,7 +46,7 @@ function callApi(endpoint, args={}, callback = null) {
     const query = document.querySelector("#plantname").value;
     const size = document.querySelector("#page_size").value;
     callApi("plants", {q: query, page_size: size}, function(response) {
-      const json = response.json();
+      const json = await response.json();
       console.log(json);
       displayResults(json);
     });
