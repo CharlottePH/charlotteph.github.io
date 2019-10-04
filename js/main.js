@@ -12,9 +12,15 @@ const myRequest = new Request('https://trefle.io/api/kingdoms?token=' + token, m
 
 fetch(myRequest)
   .then(function(response) {
-      console.log(response);
+    console.log(response);
     return response.json();
   })
   .then(function(myJson) {
     console.log(JSON.stringify(myJson));
   });
+
+  document.querySelector("#btn_submit").onclick = function(event) {
+    //Request + "plantname"
+    //$form_query = 'https://trefle.io/api/common_name=$plantname'
+    alert("I am an alert box!");
+  }
