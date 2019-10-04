@@ -44,8 +44,8 @@ function callApi(endpoint, args={}, callback = null) {
     //Request + "plantname"
     //$form_query = 'https://trefle.io/api/common_name=$plantname'
     const query = document.querySelector("#plantname").value;
-
-    callApi("plants", {q: query}, function(response) {
+    const size = document.querySelector("#page_size").value;
+    callApi("plants", {q: query, page_size: size}, function(response) {
       console.log(response.json());
     });
 
