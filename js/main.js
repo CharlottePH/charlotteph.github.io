@@ -43,8 +43,9 @@ function callApi(endpoint, args={}, callback = null) {
   document.querySelector("#btn_submit").onclick = function(event) {
     //Request + "plantname"
     //$form_query = 'https://trefle.io/api/common_name=$plantname'
-    callApi("plants", {q: 'bromeliad'}, function(response) {
-      console.log('hi');
+    const query = document.querySelector("#plantname").value;
+
+    callApi("plants", {q: query}, function(response) {
       console.log(response.json());
     });
 
