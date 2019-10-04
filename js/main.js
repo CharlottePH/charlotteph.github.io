@@ -1,12 +1,11 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJodHRwczovL2NoYXJsb3R0ZXBoLmdpdGh1Yi5pbyIsImF1ZCI6Ikpva2VuIiwiZXhwIjoxNTY3Nzg1NzQ0LCJpYXQiOjE1Njc3Nzg1NDQsImlzcyI6Ikpva2VuIiwianRpIjoiMm4wdHNoczNycW1pZ21qczVnYzdhNjMxIiwibmJmIjoxNTY3Nzc4NTQ0fQ.2tB5ORA_xrQleiS85gEgCfYz-ZDKWXfnvd2ZVvGP0IQ";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4LDQ2LDQ4XSwiaXNzdWVyX2lkIjoxMjIwLCJvcmlnaW4iOiJjaGFybG90dGVwaC5naXRodWIuaW8iLCJhdWQiOiJKb2tlbiIsImV4cCI6MTU3MDE5Mjc5MCwiaWF0IjoxNTcwMTg1NTkwLCJpc3MiOiJKb2tlbiIsImp0aSI6IjJuNTZtdWNsZ2ZyZnFzZm1zY2g5Zm1zMSIsIm5iZiI6MTU3MDE4NTU5MH0.h57ObF-9xAFM4C7uLVBZSJt6HNdNodG-rAkxIaf0V2s";
 
 fetch(
     'https://trefle.io/api/kingdoms?name=blackwood&token=' + token, {
-        mode: 'no-cors',
+        //mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token,
-            'Origin': 'https://charlotteph.github.io'
+            'Authorization': 'Bearer ' + token
         }
     })
   .then(function(response) {
