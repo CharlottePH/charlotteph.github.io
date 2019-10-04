@@ -4,23 +4,49 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpcCI6WzQ4LDQ2LDQ4LDQ2LDQ4
 //   'Authorization': 'Bearer ' + token
 // });
 
-const myInit = {
-  method: 'GET'
-};
+function objectToQuerystring (obj) {
+  const keys = Object.keys(obj);
+  const encodedParams = keys.map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
+  const queryString = encodedParams.join('&');
 
-const myRequest = new Request('https://trefle.io/api/kingdoms?token=' + token, myInit);
+  return queryString;
+}
 
-fetch(myRequest)
-  .then(function(response) {
-    console.log(response);
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
+function callApi(endpoint, args={}, callback = null) {
+  const myInit = {
+    method: 'GET'
+  };
+
+  const myRequest = new Request(
+    'https://trefle.io/api/' + endpoint + '?token=' + token + '&' + objectToQuerystring(args),
+    myInit
+  );
+//https://trefle.io/api/plants?token=...&q=(plantname)
+  // fetch(myRequest)
+  //   .then(function(response) {
+  //     console.log(response);
+  //     return response.json();
+  //   })
+  //   .then(function(myJson) {
+  //     console.log(JSON.stringify(myJson));
+  //   });
+
+  fetch(myRequest).then(function(response) {
+    if (callback) {
+      callback(response);
+    } else {
+      console.log(response);
+    }
   });
+}
 
   document.querySelector("#btn_submit").onclick = function(event) {
     //Request + "plantname"
     //$form_query = 'https://trefle.io/api/common_name=$plantname'
-    alert("I am an alert box!");
+    callApi("plants", {q: 'bromeliad'}, function(response) {
+      console.log('hi');
+      console.log(response.json());
+    });
+
+    return false;
   }
