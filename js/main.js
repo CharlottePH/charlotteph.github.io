@@ -46,8 +46,21 @@ function callApi(endpoint, args={}, callback = null) {
     const query = document.querySelector("#plantname").value;
     const size = document.querySelector("#page_size").value;
     callApi("plants", {q: query, page_size: size}, function(response) {
-      console.log(response.json());
+      console.log(response);
+      displayResults(response);
     });
 
     return false;
+  }
+
+  function displayResults(results) {
+    const list = document.querySelector("div.results div.list ul#results");
+    let child;
+    list.innerHTML = '';
+
+    results.forEach(function(item, index) {
+      child = document.createElement('li');
+      child.innerHTML = '<a href="#" class="result-item" data-id="' + item.id + '">' + item.scientific_name + '</a>';
+      list.appendChild(child);
+    });
   }
